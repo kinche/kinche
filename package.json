@@ -1,0 +1,30 @@
+{
+  "name": "kinche",
+  "version": "0.0.0",
+  "description": "kinche",
+  "main": "index.js",
+  "repository": "kinche/kinche",
+  "author": "kinche",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "next": "^9.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.5",
+    "eslint-config-prettier": "^6.0.0",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3",
+    "xo": "^0.24.0"
+  }
+}

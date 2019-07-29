@@ -1,0 +1,6 @@
+{
+  "name": "kinche",
+  "alias": "kinche.co",
+  "version": 2,
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+}
