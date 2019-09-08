@@ -4,37 +4,32 @@ import React, { PureComponent } from 'react'
 // Layouts
 import Page from '../layouts/page'
 
+// UI
+import { Logo } from '../ui/logo'
+import { Row } from '../ui/row'
+
+// Utils
+import { SIZE_SMALL } from '../utils/constants'
+
 class Home extends PureComponent {
   render() {
     return (
       <Page>
-        <main>
-          <h1>
-            <span>kin</span>che.
-          </h1>
+        <Row size={SIZE_SMALL}>
+          <div className="content">
+            <Logo size="50px" style={{ marginLeft: 'auto', marginRight: 'auto' }} />
+          </div>
+        </Row>
 
-          <style jsx={true}>{`
-            main {
-              height: 100vh;
-              display: flex;
-              align-items: center;
-            }
-
-            h1 {
-              font-size: 28px;
-              text-align: center;
-              margin-left: auto;
-              margin-right: auto;
-              font-weight: 300;
-            }
-
-            span {
-              display: inline-block;
-              background-color: #8a33ff;
-              font-weight: 300;
-            }
-          `}</style>
-        </main>
+        <style jsx={true}>{`
+          .content {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            width: 100%;
+          }
+        `}</style>
       </Page>
     )
   }

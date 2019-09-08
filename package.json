@@ -6,6 +6,12 @@
   "repository": "kinche/kinche",
   "author": "kinche",
   "license": "MIT",
+  "keywords": [
+    "kinche",
+    "developer",
+    "franz",
+    "benchmark"
+  ],
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -13,11 +19,14 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
+    "hex-rgb": "^4.1.0",
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
     "eslint-config-prettier": "^6.0.0",
