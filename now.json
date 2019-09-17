@@ -3,5 +3,14 @@
   "alias": "kinche.co",
   "version": 2,
   "scope": "bukinoshita",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "build": {
+    "env": {
+      "COOKIES_NAME": "@kinche-cookies-name",
+      "COOKIES_DOMAIN": "@kinche-cookies-domain"
+    }
+  },
+  "github": {
+    "enabled": false
+  }
 }
