@@ -6,8 +6,9 @@
   "builds": [{ "src": "next.config.js", "use": "@now/next" }],
   "build": {
     "env": {
-      "COOKIES_NAME": "@kinche-cookies-name",
-      "COOKIES_DOMAIN": "@kinche-cookies-domain"
+      "KINCHE_COOKIES_DOMAIN": "@kinche-cookies-domain",
+      "KINCHE_COOKIES_REDIRECT": "@kinche-cookies-redirect",
+      "KINCHE_COOKIES_TOKEN": "@kinche-cookies-token"
     }
   },
   "github": {

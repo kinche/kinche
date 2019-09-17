@@ -9,19 +9,19 @@ import Page from '../../layouts/page'
 import { colors, spacing } from '../../ui/theme'
 
 // Utils
-import { saveCookie } from '../../utils/cookies'
+import { saveCookie, getCookie } from '../../utils/cookies'
 
 class SuccessAuth extends Component {
   static getInitialProps(ctx: NextPageContext) {
     const { res, query } = ctx
-    const { accessToken, redirectUrl } = query
+    const { accessToken } = query
+    const redirectURL = getCookie(process.env.KINCHE_COOKIES_REDIRECT || '', ctx)
 
-    if (query && accessToken && redirectUrl) {
-      const name = process.env.COOKIES_NAME || ''
-      saveCookie(ctx, name, accessToken)
+    if ((query && accessToken) || redirectURL) {
+      saveCookie(ctx, process.env.KINCHE_COOKIES_TOKEN || '', accessToken)
 
       if (res) {
-        res.writeHead(302, { Location: redirectUrl })
+        res.writeHead(302, { Location: redirectURL })
         res.end()
       }
     }
