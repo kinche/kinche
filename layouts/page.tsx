@@ -77,10 +77,6 @@ class Page extends Component<PageProps> {
             font-feature-settings: 'liga';
           }
 
-          body {
-            background-color: ${colors.black};
-          }
-
           img {
             max-width: 100%;
           }
@@ -96,6 +92,7 @@ class Page extends Component<PageProps> {
 
           fieldset {
             border: 0;
+            width: 100%;
           }
         `}</style>
       </Fragment>
