@@ -17,7 +17,6 @@ class SuccessAuth extends Component<{ redirectURL?: string }> {
     const { res, query } = ctx
     const { accessToken } = query
     const redirectURL = getCookie(process.env.KINCHE_COOKIES_REDIRECT || '', ctx)
-    console.log({ redirectURL })
 
     if (query && accessToken && redirectURL) {
       saveCookie(ctx, process.env.KINCHE_COOKIES_TOKEN || '', accessToken)
