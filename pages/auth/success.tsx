@@ -19,7 +19,7 @@ class SuccessAuth extends Component<{ redirectURL?: string }> {
     const redirectURL = getCookie(process.env.KINCHE_COOKIES_REDIRECT || '', ctx)
 
     if (query && accessToken && redirectURL) {
-      saveCookie(ctx, process.env.KINCHE_COOKIES_TOKEN || '', accessToken)
+      saveCookie(process.env.KINCHE_COOKIES_TOKEN || '', accessToken, ctx)
 
       if (res) {
         res.writeHead(302, { Location: redirectURL })

@@ -2,7 +2,7 @@
 import { NextPageContext } from 'next'
 import { setCookie } from 'nookies'
 
-export function saveCookie(ctx: NextPageContext, name: string, value: any, options = {}) {
+export function saveCookie(name: string, value: any, ctx?: NextPageContext, options = {}) {
   const date = new Date()
   const oneDay = date.setDate(date.getDate() + 1)
   const cookieOptions = Object.assign(
