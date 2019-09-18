@@ -1,6 +1,5 @@
 {
   "name": "kinche",
-  "alias": "kinche.co",
   "version": 2,
   "scope": "bukinoshita",
   "builds": [{ "src": "next.config.js", "use": "@now/next" }],
