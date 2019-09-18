@@ -1,6 +1,7 @@
 // Packages
 import React, { Component } from 'react'
 import { NextPageContext } from 'next'
+import { Choose } from 'react-extras'
 
 // Layouts
 import Page from '../../layouts/page'
@@ -11,31 +12,45 @@ import { colors, spacing } from '../../ui/theme'
 // Utils
 import { saveCookie, getCookie } from '../../utils/cookies'
 
-class SuccessAuth extends Component {
+class SuccessAuth extends Component<{ redirectURL?: string }> {
   static getInitialProps(ctx: NextPageContext) {
     const { res, query } = ctx
     const { accessToken } = query
     const redirectURL = getCookie(process.env.KINCHE_COOKIES_REDIRECT || '', ctx)
+    console.log({ redirectURL })
 
-    if ((query && accessToken) || redirectURL) {
+    if (query && accessToken && redirectURL) {
       saveCookie(ctx, process.env.KINCHE_COOKIES_TOKEN || '', accessToken)
 
       if (res) {
         res.writeHead(302, { Location: redirectURL })
         res.end()
       }
+
+      return { redirectURL }
     }
 
     return {}
   }
 
   render() {
+    const { redirectURL } = this.props
+
     return (
       <Page>
         <main>
           <section>
-            <h1>You successfully logged in.</h1>
-            <h2>Redirecting you to your application.</h2>
+            <Choose>
+              <Choose.When condition={Boolean(redirectURL)}>
+                <h1>You successfully logged in.</h1>
+                <h2>Redirecting you to your application.</h2>
+              </Choose.When>
+
+              <Choose.Otherwise>
+                <h1>You were not able to log in.</h1>
+                <h2>Please, try to again.</h2>
+              </Choose.Otherwise>
+            </Choose>
           </section>
         </main>
 
