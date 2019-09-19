@@ -1,6 +1,6 @@
 {
   "name": "kinche",
-  "version": "0.0.0",
+  "version": "0.0.0-canary.0",
   "description": "kinche",
   "main": "index.js",
   "repository": "kinche/kinche",
