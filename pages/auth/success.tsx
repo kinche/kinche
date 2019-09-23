@@ -15,11 +15,11 @@ import { saveCookie, getCookie } from '../../utils/cookies'
 class SuccessAuth extends Component<{ redirectURL?: string }> {
   static getInitialProps(ctx: NextPageContext) {
     const { res, query } = ctx
-    const { accessToken } = query
+    const { token } = query
     const redirectURL = getCookie(process.env.KINCHE_COOKIES_REDIRECT || '', ctx)
 
-    if (query && accessToken && redirectURL) {
-      saveCookie(process.env.KINCHE_COOKIES_TOKEN || '', accessToken, ctx)
+    if (query && token && redirectURL) {
+      saveCookie(process.env.KINCHE_COOKIES_TOKEN || '', token, ctx)
 
       if (res) {
         res.writeHead(302, { Location: redirectURL })
