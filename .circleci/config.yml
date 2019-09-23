@@ -17,26 +17,6 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  deploy-pr:
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Build
-          command: yarn build
-      - run:
-          name: Install now
-          command: sudo npm install --global --unsafe-perm now
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Deploy PR
-          command: now --token $ZEIT_TOKEN
   deploy-staging:
     docker:
       - image: circleci/node:10.16.3
@@ -56,7 +36,7 @@ jobs:
             - ./node_modules
       - run:
           name: Deploy to staging
-          command: now --token $ZEIT_TOKEN --target=staging
+          command: now --token $ZEIT_TOKEN --target=staging --local-config now.staging.json
   deploy-production:
     docker:
       - image: circleci/node:10.16.3
@@ -82,21 +62,13 @@ workflows:
   build-deploy:
     jobs:
       - test
-      - deploy-pr:
-          requires:
-            - test
-          filters:
-            branches:
-              ignore: /master/
       - deploy-staging:
           requires:
             - test
           filters:
             branches:
-              only:
-                - master
+              ignore: /master/
       - deploy-production:
-          type: approval
           requires:
             - test
           filters:

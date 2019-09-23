@@ -1,0 +1,16 @@
+{
+  "name": "kinche",
+  "version": 2,
+  "scope": "bukinoshita",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "build": {
+    "env": {
+      "KINCHE_COOKIES_DOMAIN": "@kinche-staging-cookies-domain",
+      "KINCHE_COOKIES_REDIRECT": "@kinche-staging-cookies-redirect",
+      "KINCHE_COOKIES_TOKEN": "@kinche-staging-cookies-token"
+    }
+  },
+  "github": {
+    "enabled": false
+  }
+}
